@@ -95,14 +95,14 @@
           <ul class="menu-sub" v-if="user.type == 'superadmin'">
             <router-link :to="{ name: 'AccountKecamatan' }" class="menu-item">
               <span class="menu-link">
-                <div data-i18n="Without menu">Kecamatan</div>
+                <div data-i18n="Without menu">Admin</div>
               </span>
             </router-link>
           </ul>
           <ul class="menu-sub" v-if="user.type == 'kecamatan'">
             <router-link :to="{ name: 'Account' }" class="menu-item">
               <span class="menu-link">
-                <div data-i18n="Without menu">Desa</div>
+                <div data-i18n="Without menu">Masyarakat</div>
               </span>
             </router-link>
           </ul>

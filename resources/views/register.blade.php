@@ -63,7 +63,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Dukcapil</span>
+                                <span class="app-brand-text demo text-body fw-bolder">Berang Kolong</span>
                             </a>
                         </div>
                         <!-- /Logo -->
