@@ -48,7 +48,7 @@ class OfficialController extends Controller
             $data['signature'] = $signature;
             $response_data = Official::create($data);
             $response = [
-                "message" => "Pejabat berhasil ditambahkan",
+                "message" => "Aparat Desa berhasil ditambahkan",
                 "data" => $response_data
             ];
 
@@ -62,7 +62,7 @@ class OfficialController extends Controller
     {
         $official = Official::byUserId(auth()->id())->where('id', $id)->first();
         if (!$official || !$official->can_modified()) {
-            return response()->json("Gagal memperbarui data. Pejabat tidak ditemukan.", 404);
+            return response()->json("Gagal memperbarui data. Aparat Desa tidak ditemukan.", 404);
         }
 
         $validator = Validator::make($request->all(), [
@@ -85,13 +85,13 @@ class OfficialController extends Controller
             $request['signature'] = $signature;
             $official->update($request->all());
             $response = [
-                "message" => "Pejabat berhasil diperbaru",
+                "message" => "Aparat desa berhasil diperbaru",
                 "data" => $official
             ];
 
             return response()->json($response, 200);
         } catch (Exception $e) {
-            return response()->json("Pejabat gagal diperbarui", 500);
+            return response()->json("Aparat Desa gagal diperbarui", 500);
         }
     }
 
@@ -99,7 +99,7 @@ class OfficialController extends Controller
     {
         $official = Official::byUserId(auth()->id())->where('id', $id)->first();
         if (!$official || !$official->can_modified()) {
-            return response()->json("Gagal menghapus data. Pejabat tidak ditemukan.", 404);
+            return response()->json("Gagal menghapus data. Aparat Desa tidak ditemukan.", 404);
         }
 
         DB::beginTransaction();
@@ -112,13 +112,13 @@ class OfficialController extends Controller
             DB::commit();
 
             $response = [
-                "message" => "Pejabat berhasil dihapus",
+                "message" => "Aparat Desa berhasil dihapus",
                 "data" => null,
             ];
             return response()->json($response, 200);
         } catch (Exception $e) {
             DB::rollBack();
-            return response()->json("Pejabat gagal dihapus", 500);
+            return response()->json("Aparat Desa gagal dihapus", 500);
         }
     }
 }

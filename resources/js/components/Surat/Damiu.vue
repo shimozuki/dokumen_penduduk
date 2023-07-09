@@ -136,7 +136,7 @@
       @success="reset(), $refs.table.refresh()" :can_verified="letter.official != null">
       <template #penandatangan>
         <div class="mb-3" v-if="letter.official != null">
-          <label class="form-label">Pejabat Penandatangan Yang Tersimpan</label>
+          <label class="form-label">Aparat Desa Penandatangan Yang Tersimpan</label>
           <div class="form-control d-flex align-items-center justify-content-between">
             <span>{{ letter.official.nip }} - {{ letter.official.name }}</span>
           </div>

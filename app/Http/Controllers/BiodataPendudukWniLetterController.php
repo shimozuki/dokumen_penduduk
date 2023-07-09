@@ -166,7 +166,7 @@ class BiodataPendudukWniLetterController extends Controller
         $templateProcessor->setValue('rt_name', $letter->rt_name);
         $templateProcessor->setValue('rw_name', $letter->rw_name);
 
-        // Kebutuhan data yang terkait dengan pejabat yang menandatangan
+        // Kebutuhan data yang terkait dengan Aparat Desa yang menandatangan
         $templateProcessor->setValue('penandatangan_kecamatan_nip', 'NIP. ' . $letter->penandatangan_kecamatan->nip);
         $templateProcessor->setValue('penandatangan_kecamatan_name', $letter->penandatangan_kecamatan->name);
         $templateProcessor->setImageValue('signature_kecamatan', [
@@ -310,7 +310,7 @@ class BiodataPendudukWniLetterController extends Controller
             if ($e->getMessage() == 'kepala_keluarga_not_found') {
                 return response()->json("Kepala keluarga tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("Biodata Penduduk WNI berhasil dibuat, tapi notifikasi whatsapp gagal dikirim", 201);
             } else {
@@ -461,7 +461,7 @@ class BiodataPendudukWniLetterController extends Controller
             if ($e->getMessage() == 'kepala_keluarga_not_found') {
                 return response()->json("Kepala keluarga tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("Biodata Penduduk WNI berhasil diubah, tapi notifikasi whatsapp gagal dikirim", 200);
             } else {
@@ -539,7 +539,7 @@ class BiodataPendudukWniLetterController extends Controller
                 Storage::delete('signature/' . $signature_kecamatan);
             }
             if ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } else {
                 return response()->json($e->getMessage() . " In line " . $e->getLine(), 500);
             }

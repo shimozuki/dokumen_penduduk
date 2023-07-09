@@ -1,5 +1,5 @@
 <template>
-  <h4 class="fw-bold py-3 mb-4">Pejabat</h4>
+  <h4 class="fw-bold py-3 mb-4">Aparat Desa</h4>
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
@@ -7,7 +7,7 @@
           <ul class="nav nav-pills flex-column flex-md-row">
             <li class="nav-item">
               <span v-if="modal" class="nav-link active" @click="modal.show()"
-                ><i class="bx bx-plus me-1" style=""></i> Tambah Pejabat</span
+                ><i class="bx bx-plus me-1" style=""></i> Tambah Aparat Desa</span
               >
             </li>
           </ul>
@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <modal ref="modal" @on-hide="reset" :title="(official.id == '' ? 'Tambah' : 'Ubah') + 'Pejabat'" :button_close="true">
+  <modal ref="modal" @on-hide="reset" :title="(official.id == '' ? 'Tambah' : 'Ubah') + 'Aparat Desa'" :button_close="true">
     <form @submit.prevent="saveOfficial">
       <div class="mb-3">
         <label class="form-label">NIP</label>
@@ -204,7 +204,7 @@ export default {
           Swal.fire({
             icon: "error",
             title: "Gagal",
-            text: "Pejabat gagal dihapus",
+            text: "Aparat gagal dihapus",
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {

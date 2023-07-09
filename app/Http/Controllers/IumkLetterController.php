@@ -337,7 +337,7 @@ class IumkLetterController extends Controller
             $official = Official::find(auth()->user()->head_of_institution_id);
             if (!$official) {
                 DB::rollBack();
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             }
 
             if ($update_iumk_letter->official_id == null) {

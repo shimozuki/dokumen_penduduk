@@ -12,8 +12,8 @@
               </h4>
               <div class="row">
                 <div class="mb-3">
-                  <label for="address" class="form-label">Pejabat</label>
-                  <search-input placeholder="Cari Pejabat ..." ref="search_input_pejabat" v-model="head_of_institution"
+                  <label for="address" class="form-label">Aparat Desa</label>
+                  <search-input placeholder="Cari Aparat Desa ..." ref="search_input_pejabat" v-model="head_of_institution"
                     :url="origin + '/backend/officials'" v-if="head_of_institution == null">
                     <template v-slot="{ data }">
                       <small class="text-secondary">{{ data.nip }}</small>
@@ -26,7 +26,7 @@
   $refs.modal_form_pejabat.show(),
   ($refs.search_input_pejabat.focus = false)
 ">
-                        + Tambah Data Pejabat
+                        + Tambah Data Aparat Desa
                       </p>
                     </template>
                   </search-input>
@@ -159,7 +159,7 @@
     </div>
   </div>
 
-  <modal ref="modal_form_pejabat" :title="'Tambah Pejabat'" :close_button="true">
+  <modal ref="modal_form_pejabat" :title="'Tambah Aparat Desa'" :close_button="true">
     <official-form @on-save="$refs.modal_form_pejabat.hide(), $refs.spinner.show()"
       @finish="$refs.spinner.hide(), $refs.search_input_pejabat.search(), (data) => head_of_institution = data">
     </official-form>

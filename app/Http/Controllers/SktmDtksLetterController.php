@@ -116,7 +116,7 @@ class SktmDtksLetterController extends Controller
         $templateProcessor->setValue('digunakan_untuk', $letter->used_as);
         $templateProcessor->setValue('pimpinan_desa', $letter->user->leader() . " " . $letter->user->village);
 
-        // Kebutuhan data yang terkait dengan pejabat yang menandatangan
+        // Kebutuhan data yang terkait dengan Aparat Desa yang menandatangan
         $templateProcessor->setValue('nip_penandatangan_kecamatan', 'NIP. ' . $letter->penandatangan_kecamatan->nip);
         $templateProcessor->setValue('nama_penandatangan_kecamatan', $letter->penandatangan_kecamatan->name);
         $templateProcessor->setValue('jabatan_penandatangan_kecamatan', $letter->penandatangan_kecamatan->position);
@@ -266,7 +266,7 @@ class SktmDtksLetterController extends Controller
             if ($e->getMessage() == 'resident_not_found') {
                 return response()->json("Satu atau lebih pemohon tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("Surat SKTM DTKS berhasil dibuat, tapi notifikasi whatsapp gagal dikirim", 201);
             } else {
@@ -439,7 +439,7 @@ class SktmDtksLetterController extends Controller
             if ($e->getMessage() == 'resident_not_found') {
                 return response()->json("Satu atau lebih pemohon tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("Surat SKTM DTKS berhasil diubah, tapi notifikasi whatsapp gagal dikirim", 200);
             } else {
@@ -516,7 +516,7 @@ class SktmDtksLetterController extends Controller
                 Storage::delete('signature/' . $signature_kecamatan);
             }
             if ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } else {
                 return response()->json($e->getMessage() . " In line " . $e->getLine(), 500);
             }

@@ -123,7 +123,7 @@ class SkpwniLetterController extends Controller
         $templateProcessor->setValue('pimpinan_kecamatan', "Camat " . $letter->user->parent->sub_district);
         $templateProcessor->setValue('pimpinan_desa', $letter->user->leader() . " " . $letter->user->village);
 
-        // Kebutuhan data yang terkait dengan pejabat yang menandatangan
+        // Kebutuhan data yang terkait dengan Aparat Desa yang menandatangan
         $templateProcessor->setValue('penandatangan_kecamatan_nip', 'NIP. ' . $letter->penandatangan_kecamatan->nip);
         $templateProcessor->setValue('penandatangan_kecamatan_name', $letter->penandatangan_kecamatan->name);
         $templateProcessor->setImageValue('signature_kecamatan', [
@@ -272,7 +272,7 @@ class SkpwniLetterController extends Controller
             if ($e->getMessage() == 'kepala_keluarga_not_found') {
                 return response()->json("Kepala keluarga tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("SKPWNI berhasil dibuat, tapi notifikasi whatsapp gagal dikirim", 201);
             } else {
@@ -420,7 +420,7 @@ class SkpwniLetterController extends Controller
             if ($e->getMessage() == 'kepala_keluarga_not_found') {
                 return response()->json("Kepala keluarga tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } elseif ($e->getMessage() == 'WHATSAPP_SEND_FAIL') {
                 return response()->json("SKPWNI berhasil diubah, tapi notifikasi whatsapp gagal dikirim", 200);
             } else {
@@ -498,7 +498,7 @@ class SkpwniLetterController extends Controller
                 Storage::delete('signature/' . $signature_kecamatan);
             }
             if ($e->getMessage() == 'official_not_found') {
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat Desa penandatangan tidak ditemukan", 404);
             } else {
                 return response()->json($e->getMessage() . " In line " . $e->getLine(), 500);
             }

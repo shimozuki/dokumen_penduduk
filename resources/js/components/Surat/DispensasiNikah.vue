@@ -158,8 +158,8 @@
       <template #penandatangan>
         <form method="POST" @submit.prevent="savePenandatangan">
           <div class="mb-3">
-            <label class="form-label">Pejabat Penandatangan</label>
-            <search-input placeholder="Cari Pejabat ..." ref="search_input_official" v-model="penandatangan"
+            <label class="form-label">Aparat Desa Penandatangan</label>
+            <search-input placeholder="Cari Aparat Desa ..." ref="search_input_official" v-model="penandatangan"
               :url="origin + '/backend/officials'" v-if="penandatangan == null" @change="ubah_penandatangan = true">
               <template v-slot="{ data }">
                 <small class="text-secondary">{{ data.nip }}</small>
@@ -172,7 +172,7 @@
   modal_form_official.show(),
   ($refs.search_input_official.focus = false)
 ">
-                  + Tambah Data Pejabat
+                  + Tambah Data Aparat Desa
                 </p>
               </template>
             </search-input>

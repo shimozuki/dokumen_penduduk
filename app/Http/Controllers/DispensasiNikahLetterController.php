@@ -349,7 +349,7 @@ class DispensasiNikahLetterController extends Controller
             $official = Official::find($request->official_id);
             if (!$official) {
                 DB::rollBack();
-                return response()->json("Pejabat penandatangan tidak ditemukan", 404);
+                return response()->json("Aparat desa penandatangan tidak ditemukan", 404);
             }
 
             if ($update_letter->official_id == null) {

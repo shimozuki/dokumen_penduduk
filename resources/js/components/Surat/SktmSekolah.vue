@@ -150,8 +150,8 @@
         <input type="text" class="form-control" placeholder="Nama Sekolah/Institusi" v-model="letter.institution" />
       </div>
       <div class="mb-3">
-        <label class="form-label">Pejabat Penandatangan Desa</label>
-        <search-input placeholder="Cari Pejabat ..." ref="search_input_penandatangan_desa" v-model="penandatangan_desa"
+        <label class="form-label">Aparat Desa Penandatangan Desa</label>
+        <search-input placeholder="Cari Aparat Desa ..." ref="search_input_penandatangan_desa" v-model="penandatangan_desa"
           :url="origin + '/backend/officials'" v-if="letter.penandatangan_desa == null"
           @change="(data) => letter.penandatangan_desa = data">
           <template v-slot="{ data }">
@@ -165,7 +165,7 @@
   modal_form_penandatangan_desa.show(),
   ($refs.search_input_penandatangan_desa.focus = false)
 ">
-              + Tambah Data Pejabat
+              + Tambah Data Aparat Desa
             </p>
           </template>
         </search-input>
@@ -184,14 +184,14 @@
       <template #penandatangan>
         <form method="POST" @submit.prevent="savePenandatanganKecamatan">
           <div class="mb-3" v-if="letter.penandatangan_kecamatan != null">
-            <label class="form-label">Pejabat Penandatangan Yang Tersimpan</label>
+            <label class="form-label">Aparat Desa Penandatangan Yang Tersimpan</label>
             <div class="form-control d-flex align-items-center justify-content-between">
               <span>{{ letter.penandatangan_kecamatan.nip }} - {{ letter.penandatangan_kecamatan.name }}</span>
             </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Pejabat Penandatangan</label>
-            <search-input placeholder="Cari Pejabat ..." ref="search_input_penandatangan_kecamatan"
+            <label class="form-label">Aparat Desa Penandatangan</label>
+            <search-input placeholder="Cari Aparat Desa ..." ref="search_input_penandatangan_kecamatan"
               v-model="penandatangan_kecamatan" :url="origin + '/backend/officials'"
               v-if="penandatangan_kecamatan == null">
               <template v-slot="{ data }">
@@ -203,7 +203,7 @@
               <template #default_first>
                 <p class="text-center text-primary m-0" style="cursor: pointer"
                   @click="modal_form_penandatangan_kecamatan.show(), ($refs.search_input_penandatangan_kecamatan.focus = false)">
-                  + Tambah Data Pejabat
+                  + Tambah Data Aparat Desa
                 </p>
               </template>
             </search-input>
